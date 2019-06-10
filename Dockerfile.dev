@@ -1,6 +1,7 @@
-FROM python:3.7-slim
-WORKDIR /app
-COPY . /app
+FROM python:3.7
+RUN mkdir /code
+RUN apt-get update
+RUN apt-get install libpq-dev -y
+WORKDIR /code
+COPY . /code
 RUN pip install --trusted-host pypi.python.org -r requirements/local.txt
-EXPOSE 8000
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
