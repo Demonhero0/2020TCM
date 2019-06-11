@@ -4,6 +4,9 @@ services:
   db:
     image: postgres
   web:
+    build:
+      context: ../
+      dockerfile: Dockerfile.dev
     image: registry.cn-shenzhen.aliyuncs.com/ash-workshop/drf-starter:latest
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
