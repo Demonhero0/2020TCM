@@ -5,10 +5,12 @@ services:
     image: postgres
   web:
     image: registry.cn-shenzhen.aliyuncs.com/ash-workshop/drf-starter:latest
-    command: python manage.py runserver 0.0.0.0:8000
+    command: ./scripts/start.sh
     volumes:
       - ../:/code
     ports:
       - "8000:8000"
     depends_on:
       - db
+    environment:
+      DJANGO_SETTINGS_MODULE: 'config.settings.local'
