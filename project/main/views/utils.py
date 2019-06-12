@@ -12,6 +12,13 @@ class UtilsViewSet(viewsets.ViewSet):
     def hello(self, request):
         return Response({'message': 'Hello, world'})
 
+    @action(detail=False, methods=['get'])
+    def add(self, request):
+        a = float(request.GET.get('a',0))
+        b = float(request.GET.get('b',0))
+        sum = a+b
+        return Response({"result":sum})
+
     @action(detail=False, methods=['post'])
     def login(self, request):
         serializer = AuthTokenSerializer(data=request.data, context={'request': request})
