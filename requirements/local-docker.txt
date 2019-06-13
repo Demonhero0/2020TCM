@@ -1,0 +1,2 @@
+-r local.txt
+psycopg2>=2.7,<3.0

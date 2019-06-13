@@ -2,4 +2,4 @@ FROM python:3.7
 RUN mkdir /code
 WORKDIR /code
 COPY . /code
-RUN pip install --trusted-host mirrors.aliyun.com -i http://mirrors.aliyun.com/pypi/simple/ -r requirements/local.txt
+RUN pip install --trusted-host mirrors.aliyun.com -i http://mirrors.aliyun.com/pypi/simple/ -r requirements/local-docker.txt
