@@ -1,4 +1,5 @@
 django
 djangorestframework
 django-crontab
-coreapi
+pyyaml
+uritemplate

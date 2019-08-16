@@ -29,7 +29,7 @@ $ source venb/bin/activate
 需要安装[docker](https://www.docker.com/)及[docker-compose](https://docs.docker.com/compose/)（或直接安装docker-desktop 包含了docker及docker-compose）
 ```bash
 $ cd docker
-$ docker-compose -f docker-compose.dev.yml up
+$ docker-compose up
 ```
 启动后访问 http://localhost:8000/api/docs
 
@@ -37,5 +37,5 @@ $ docker-compose -f docker-compose.dev.yml up
 
 #### 停止并卸载container
 ```bash
-$ docker-compose -f docker-compose.dev.yml down
+$ docker-compose down
 ```

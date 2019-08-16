@@ -4,7 +4,9 @@ services:
   db:
     image: postgres
   web:
-    image: registry.cn-shenzhen.aliyuncs.com/ash-workshop/drf-starter:latest
+    build:
+      context: ../
+      dockerfile: Dockerfile.dev
     command: ./scripts/start.sh
     volumes:
       - ../:/code
