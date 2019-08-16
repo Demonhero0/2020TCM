@@ -9,15 +9,14 @@ from project.main.serializers.users import UserSerializer
 
 class UtilsViewSet(viewsets.ViewSet):
     @action(detail=False, methods=['get'])
-    def hello(self, request):
-        return Response({'message': 'Hello, world'})
+    def hello(self, requeset):
+        return Response({"message":"Hello SYSU"})
 
     @action(detail=False, methods=['get'])
     def add(self, request):
         a = float(request.GET.get('a',0))
         b = float(request.GET.get('b',0))
-        sum = a+b
-        return Response({"result":sum})
+        return Response({"result":a+b})
 
     @action(detail=False, methods=['post'])
     def login(self, request):
