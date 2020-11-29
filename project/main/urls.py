@@ -8,9 +8,9 @@ from project.main.views.users import UserViewSet
 from project.main.views.students import StudentViewSet
 
 router = routers.DefaultRouter(trailing_slash=False)
-router.register(r'', UtilsViewSet, base_name="utils")
-router.register(r'users', UserViewSet, base_name='user')
-router.register(r'students',StudentViewSet,base_name='student')
+router.register(r'', UtilsViewSet, basename="utils")
+router.register(r'users', UserViewSet, basename='user')
+router.register(r'students',StudentViewSet,basename='student')
 
 urlpatterns = [
     path('', include(router.urls)),
