@@ -1,5 +1,5 @@
-# drf-starter
-采用DRF框架的API服务器脚手架
+# TCM
+采用DRF框架的中医食疗推荐系统后台
 ## 使用
 ### 准备
 需要安装[python3.7](https://www.python.org/), [pip3](https://pypi.org/project/pip/), [virtualenv](https://virtualenv.pypa.io/en/latest/)
@@ -39,3 +39,8 @@ $ docker-compose up
 ```bash
 $ docker-compose down
 ```
+
+## API
+| url | 参数 | 返回值 |
+| ---- | ---- | ---- |
+| /api/check | centent | |
