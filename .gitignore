@@ -116,3 +116,11 @@ dmypy.json
 
 # vscode
 .vscode
+
+# migrations
+migrations/
+!__init__.py
+
+# besides
+jieba_test.py
+scrapy_test.py
