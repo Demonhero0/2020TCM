@@ -12,6 +12,12 @@
         <input id="content" type="text" name="content" value="{{ content}}">
         <input type="submit" value="提交">
     </form>
-    
+    <h2>大家都在搜...</h2>
+    {% for disease in res %}
+    <div>
+        <h3><a href="/api/diseases/{{disease.id}}" >{{disease.name}}</a></h3>
+        <h4>简介：{{disease.introduction}}</h4>
+    </div>
+    {% endfor %}
 </body>
 </html>

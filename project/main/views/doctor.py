@@ -25,7 +25,7 @@ class CheckViewSet(APIView):
     def get(self,request):
         disease_query = Disease.objects.all().order_by('-hits')[:3]
         res = DiseaseSerializer(disease_query,context={"request":request}, many=True)
-        return render(request, 'result.html', {'res':res.data})
+        return render(request, 'index.html', {'res':res.data})
         # return Response({'msg': 'use post request'}, status=status.HTTP_200_OK, template_name='index.html')
 
     # example {"content":"经常性头晕，频繁肚子痛"}
