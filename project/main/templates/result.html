@@ -9,7 +9,7 @@
     <form action="" method="post">
         {% csrf_token %}
         请输入您的症状：
-        <input id="content" type="text" name="content" value="{{ content}}">
+        <input id="content" type="text" name="content" value="{{ content }}">
         <input type="submit" value="提交">
     </form>
     {% if res %}
