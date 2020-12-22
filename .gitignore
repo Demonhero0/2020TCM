@@ -118,7 +118,7 @@ dmypy.json
 .vscode
 
 # migrations
-# migrations/
+migrations/
 !__init__.py
 
 # besides
