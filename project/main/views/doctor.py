@@ -1,5 +1,5 @@
 from project.main.models import Disease
-from project.main.serializers.doctor import DiseaseSerializer,MedicineSerializer
+from project.main.serializers.doctor import DiseaseSerializer,MedicineSerializer,DiseaseAdminSerializer
 from rest_framework.views import APIView
 from rest_framework import viewsets
 from rest_framework import status
@@ -11,10 +11,10 @@ from django.shortcuts import render
 import jieba
 import jieba.analyse
 
-class DiseaseViewSetAdmin(viewsets.ModelViewSet):
+class DiseaseAdminViewSet(viewsets.ModelViewSet):
 
     queryset = Disease.objects.all()
-    serializer_class = DiseaseSerializer
+    serializer_class = DiseaseAdminSerializer
 
 class MedicineViewSet(viewsets.ModelViewSet):
     queryset = Medicine.objects.all()
@@ -65,7 +65,7 @@ class CheckViewSet(APIView):
             return render(request, 'result.html', {"content":content})
         return Response({'msg': 'do nothing'}, status=status.HTTP_200_OK)
 
-class DiseaseView(viewsets.ReadOnlyModelViewSet):
+class DiseaseViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Disease.objects.all()
     serializer_class = DiseaseSerializer
 

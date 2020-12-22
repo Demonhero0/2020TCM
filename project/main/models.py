@@ -22,6 +22,7 @@ class Medicine(models.Model):
     diseases = models.ManyToManyField(
         Disease,
         blank=True,
+        default=None,
         related_name="medicines",
     )
 
