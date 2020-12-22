@@ -11,7 +11,7 @@ from django.shortcuts import render
 import jieba
 import jieba.analyse
 
-class DiseaseViewSet(viewsets.ModelViewSet):
+class DiseaseViewSetAdmin(viewsets.ModelViewSet):
 
     queryset = Disease.objects.all()
     serializer_class = DiseaseSerializer
@@ -23,7 +23,9 @@ class MedicineViewSet(viewsets.ModelViewSet):
 class CheckViewSet(APIView):
 
     def get(self,request):
-        return render(request, 'index.html')
+        disease_query = Disease.objects.all().order_by('-hits')[:3]
+        res = DiseaseSerializer(disease_query,context={"request":request}, many=True)
+        return render(request, 'result.html', {'res':res.data})
         # return Response({'msg': 'use post request'}, status=status.HTTP_200_OK, template_name='index.html')
 
     # example {"content":"经常性头晕，频繁肚子痛"}
@@ -52,5 +54,9 @@ class DiseaseView(viewsets.ReadOnlyModelViewSet):
     serializer_class = DiseaseSerializer
 
     def retrieve(self, request, pk=None):
-        pass
+        disease = Disease.objects.get(id=pk)
+        disease.hits += 1
+        disease.save()
+        res = DiseaseSerializer(disease,context={"request":request})
+        return render(request, 'disease_detail.html', {"disease":res.data})
         

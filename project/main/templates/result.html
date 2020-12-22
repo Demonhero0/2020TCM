@@ -17,14 +17,8 @@
         <p>共找到  结果</p>
         {% for disease in res %}
         <div>
-            <h3>{{disease.name}}</h3>
+            <h3><a href="/api/diseases/{{disease.id}}" >{{disease.name}}</a></h3>
             <h4>简介：{{disease.introduction}}</h4>
-            <h4>相关中成药</h4>
-            {% for medicine in disease.medicines %}
-                <p>名称：{{medicine.name}}</p>
-                <p>成分：{{medicine.composition}}</p>
-                <p>功效：{{medicine.effect}}</p>
-            {% endfor %}
         </div>
         {% endfor %}
     {% else %}
