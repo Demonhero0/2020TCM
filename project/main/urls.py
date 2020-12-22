@@ -6,11 +6,12 @@ from rest_framework.schemas import get_schema_view
 from project.main.views.utils import UtilsViewSet, descriptionView
 from project.main.views.users import UserViewSet
 from project.main.views.students import StudentViewSet
-from project.main.views.doctor import CheckViewSet,DiseaseViewSet
+from project.main.views.doctor import CheckViewSet,DiseaseViewSet,MedicineViewSet
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'', UtilsViewSet, basename="utils")
 router.register(r'diseases', DiseaseViewSet, basename="disease")
+router.register(r'medicines', MedicineViewSet, basename='medicine')
 # router.register(r'users', UserViewSet, basename='user')
 # router.register(r'students',StudentViewSet,basename='student')
 

@@ -1,10 +1,10 @@
 from project.main.models import Disease
-from project.main.serializers.doctor import DiseaseSerializer
+from project.main.serializers.doctor import DiseaseSerializer,MedicineSerializer
 from rest_framework.views import APIView
 from rest_framework import viewsets
 from rest_framework import status
 from rest_framework.response import Response
-from project.main.serializers.doctor import Disease
+from project.main.serializers.doctor import Disease,Medicine
 from django.core import serializers
 from django.shortcuts import render
 
@@ -15,6 +15,10 @@ class DiseaseViewSet(viewsets.ModelViewSet):
 
     queryset = Disease.objects.all()
     serializer_class = DiseaseSerializer
+
+class MedicineViewSet(viewsets.ModelViewSet):
+    queryset = Medicine.objects.all()
+    serializer_class = MedicineSerializer
 
 class CheckViewSet(APIView):
 
@@ -37,9 +41,16 @@ class CheckViewSet(APIView):
             print(disease_query)
             res = DiseaseSerializer(disease_query,context={"request":request}, many=True)
             print(res)
-            return render(request, 'index.html', {'res':res.data, "content":content})
+            return render(request, 'result.html', {'res':res.data, "content":content})
             # return Response({'msg': res.data}, status=status.HTTP_200_OK)
         else:
-            return Response({'msg': 'error'}, status=status.HTTP_400_BAD_REQUEST)
+            return render(request, 'result.html', {"content":content})
         return Response({'msg': 'do nothing'}, status=status.HTTP_200_OK)
+
+class DiseaseView(viewsets.ReadOnlyModelViewSet):
+    queryset = Disease.objects.all()
+    serializer_class = DiseaseSerializer
+
+    def retrieve(self, request, pk=None):
+        pass
         

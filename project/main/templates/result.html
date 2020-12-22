@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+    <h1>中医食疗推荐系统</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        请输入您的症状：
+        <input id="content" type="text" name="content" value="{{ content}}">
+        <input type="submit" value="提交">
+    </form>
+    {% if res %}
+        <h2>查询结果</h2>
+        <p>共找到  结果</p>
+        {% for disease in res %}
+        <div>
+            <h3>{{disease.name}}</h3>
+            <h4>简介：{{disease.introduction}}</h4>
+            <h4>相关中成药</h4>
+            {% for medicine in disease.medicines %}
+                <p>名称：{{medicine.name}}</p>
+                <p>成分：{{medicine.composition}}</p>
+                <p>功效：{{medicine.effect}}</p>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    {% else %}
+        <p> 请输入症状 </p>
+    {% endif %}
+
+
+</body>
+</html>

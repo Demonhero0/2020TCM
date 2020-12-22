@@ -9,8 +9,21 @@ class Disease(models.Model):
     introduction = models.TextField(default="")
     symptom = models.TextField(default="")
     treatment = models.TextField(default="")
-    medicines = models.TextField(default="")
-    
+    medicine = models.TextField(default="")
+    hits = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.name
+
+class Medicine(models.Model):
+    name = models.CharField(max_length=12)
+    composition = models.CharField(max_length=32)
+    effect = models.CharField(max_length=32)
+    diseases = models.ManyToManyField(
+        Disease,
+        blank=True,
+        related_name="medicines",
+    )
 
     def __str__(self):
         return self.name

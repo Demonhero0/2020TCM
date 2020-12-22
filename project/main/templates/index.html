@@ -11,18 +11,6 @@
         请输入您的症状：
         <input id="content" type="text" name="content" value="{{ content}}">
         <input type="submit" value="提交">
-        {% if res %}
-            <h2>查询结果</h2>
-            {% for disease in res %}
-            <div>
-                <p>{{disease.name}}</p>
-                <p>{{disease.introduction}}</p>
-                <p>{{disease.medicines}}</p>
-            </div>
-            {% endfor %}
-        {% else %}
-            <p> 请输入症状 </p>
-        {% endif %}
     </form>
 
 </body>
