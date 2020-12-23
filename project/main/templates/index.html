@@ -28,10 +28,14 @@
       <div class="hot-words__title">大家都在搜...</div>
       <ul class="hot-words__list">
       {% for disease in res %}
-        <li>
-          <a class="hot-words__word" href="{% url 'disease-detail' disease.id %}" >{{disease.name}}</a>
-          <div class="hot-words__explain">简介：{{disease.introduction}}</div>
-        </li>
+      <li class="hot-words__word-card">
+        <a class="hot-words__link" href="{% url 'disease-detail' disease.id %}" >
+          <div class="hot-words__word">
+            {{disease.name}}
+          </div>
+          <div class="hot-words__explain">{{disease.introduction}}</div>
+        </a>
+      </li>
       {% endfor %}
       </ul>
     </div>

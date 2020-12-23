@@ -61,9 +61,50 @@
 }
 
 .hot-words .hot-words__list {
-  /* background-color: ; */
+  background-color: #3a38388c;
+  color: #d9d9d9;
+  font-size: 0.9em;
+  line-height: 2em;
+  list-style: none;
+  padding: 20px 20px;
+  border-radius: 0 0 20px 20px;
+}
+
+.hot-words .hot-words__word-card {
+  display: flex;
+  margin-bottom: 1.5em;
+}
+.hot-words .hot-words__word-card::before {
+  display: block;
+  flex-basis: 30px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  content: "";
+  border-top: 3px solid white;
+}
+
+.hot-words .hot-words__link {
+  border: 3px solid white;
+  flex-grow: 1;
+  border-top: none;
+  border-right: none;
+  text-decoration: none;
+  color: inherit;
+}
+.hot-words .hot-words__word,
+.hot-words .hot-words__explain {
+  background-color: #3a383859;
+  padding: 2px 18px;
 }
 .hot-words .hot-words__word {
+  display: inline-block;
+  min-width: 100px;
+  margin-bottom: 1em;
+  padding-left: 30px;
 }
 .hot-words .hot-words__explain {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
