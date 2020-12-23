@@ -27,7 +27,7 @@ class CheckViewSet(APIView):
         print(content)
         if content:
             tags = jieba.analyse.extract_tags(content, topK=20, withWeight=True, allowPOS=('ns','n','v'))
-            print(tags)
+            print('tags: ',tags)
             disease_query = Disease.objects.none()
             for tag in tags:
                 disease_query = disease_query.union(Disease.objects.filter(symptom__contains=tag[0]))

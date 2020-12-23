@@ -124,3 +124,5 @@ migrations/
 # besides
 jieba_test.py
 scrapy_test.py
+medicine
+medicine.rar
