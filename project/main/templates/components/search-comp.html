@@ -1,0 +1,15 @@
+{% load static %}
+
+<div class="search__row">
+  <div class="search__note-wrapper">
+    <div class="search__note">在此输入您的病症</div>
+  </div>
+</div>
+<div class="search__row">
+  <input type="text" id="search__input" class="search__input" />
+  <button id="search__button" class="search__button">
+    <div class="search__icon">
+      <img src="{% static 'img/search-icon.svg' %}" class="responsive-img" alt="搜索">
+    </div>
+  </button>
+</div>

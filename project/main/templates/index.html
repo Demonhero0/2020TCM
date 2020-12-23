@@ -1,18 +1,40 @@
 {% extends 'components/base.html' %}
+{% load static %}
+
+{% block head %}
+  <link type="text/css" rel="stylesheet" href="{% static 'css/index-page.css' %}" />
+  <link type="text/css" rel="stylesheet" href="{% static 'css/search.css' %}" />
+{% endblock head %}
 
 {% block body %}
-  <h1>中医食疗推荐系统</h1>
-  <form action="" method="get">
-    {% csrf_token %}
-    请输入您的症状：
-    <input id="content" type="text" name="content" value="{{ content }}">
-    <input type="submit" value="提交">
-  </form>
-  <h2>大家都在搜...</h2>
-  {% for disease in res %}
-  <div>
-    <h3><a href="{% url 'disease-detail' disease.id %}" >{{disease.name}}</a></h3>
-    <h4>简介：{{disease.introduction}}</h4>
+  <div id="root">
+    <div id="page-title" class="responsive-img-container">
+      <div class="title-part img-wrapper">
+        <img src="{% static 'img/title-part1.svg' %}" alt="中医食疗"/>
+      </div>
+      <div class="logo img-wrapper">
+        <img src="{% static 'img/logo.svg' %}" />
+      </div>
+      <div class="title-part img-wrapper">
+        <img src="{% static 'img/title-part2.svg' %}" alt="搜索系统"/>
+      </div>
+    </div>
+
+    <div id="search" class="search search--large search--show-note">
+      {% include 'components/search-comp.html' %}
+    </div>
+
+    <div class="hot-words">
+      <div class="hot-words__title">大家都在搜...</div>
+      <ul class="hot-words__list">
+      {% for disease in res %}
+        <li>
+          <a class="hot-words__word" href="{% url 'disease-detail' disease.id %}" >{{disease.name}}</a>
+          <div class="hot-words__explain">简介：{{disease.introduction}}</div>
+        </li>
+      {% endfor %}
+      </ul>
+    </div>
   </div>
-  {% endfor %}
+  <script src="{% static 'js/search.js' %}"></script>
 {% endblock body %}
