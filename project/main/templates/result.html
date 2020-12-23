@@ -1,4 +1,4 @@
-{% extends 'static/components/base.html' %}
+{% extends 'components/base.html' %}
 
 {% block body %}
   <h1>中医食疗推荐系统</h1>
@@ -12,7 +12,6 @@
   <p>共找到 {{ res|length }} 个结果. <a class="back-link">返回</a></p>
   {% for disease in res %}
   <div>
-    {{ disease }}
     <h3><a href="{% url 'disease-detail' disease.id %}" >{{disease.name}}</a></h3>
     <h4>简介：{{disease.introduction}}</h4>
   </div>
