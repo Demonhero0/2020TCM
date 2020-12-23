@@ -2,8 +2,8 @@
 {% load static %}
 
 {% block head %}
-  <link type="text/css" rel="stylesheet" href="{% static 'css/index-page.css' %}" />
   <link type="text/css" rel="stylesheet" href="{% static 'css/search.css' %}" />
+  <link type="text/css" rel="stylesheet" href="{% static 'css/index-page.css' %}" />
 {% endblock head %}
 
 {% block body %}
@@ -31,7 +31,7 @@
       <li class="hot-words__word-card">
         <a class="hot-words__link" href="{% url 'disease-detail' disease.id %}" >
           <div class="hot-words__word">
-            {{disease.name}}
+            {{ disease.name }}
           </div>
           <div class="hot-words__explain">{{disease.introduction}}</div>
         </a>

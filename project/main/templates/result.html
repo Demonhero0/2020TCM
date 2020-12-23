@@ -1,19 +1,36 @@
 {% extends 'components/base.html' %}
+{% load static %}
+
+{% block head %}
+  <link type="text/css" rel="stylesheet" href="{% static 'css/search.css' %}" />
+  <link type="text/css" rel="stylesheet" href="{% static 'css/result-page.css' %}" />
+{% endblock head %}
 
 {% block body %}
-  <h1>中医食疗推荐系统</h1>
-  <form action="" method="post">
-    {% csrf_token %}
-    请输入您的症状：
-    <input id="content" type="text" name="content" value="{{ content }}">
-    <input type="submit" value="提交">
-  </form>
-  <h2>查询结果</h2>
-  <p>共找到 {{ res|length }} 个结果. <a class="back-link">返回</a></p>
-  {% for disease in res %}
-  <div>
-    <h3><a href="{% url 'disease-detail' disease.id %}" >{{disease.name}}</a></h3>
-    <h4>简介：{{disease.introduction}}</h4>
+  <div id="root">
+    <div class="header">
+      <a class="header__logo" href="{% url 'home-page' %}">
+        <img class="responsive-img" src="{% static 'img/logo.svg' %}" />
+      </a>
+      <div class="header__content">
+        <div id="search" class="search search--large">
+          {% include 'components/search-comp.html' %}
+        </div>
+        <div class="header__bottom">
+          <div class="header__search-count">找到 {{ res|length }} 条可能匹配的结果</div>
+          <div class="header__claim">搜索结果仅供参考，若病情严重，请及时就医</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="result">
+      {% for disease in res %}
+      <div>
+        <h3><a href="{% url 'disease-detail' disease.id %}" >{{disease.name}}</a></h3>
+        <h4>简介：{{disease.introduction}}</h4>
+      </div>
+      {% endfor %}
+    </div>
   </div>
-  {% endfor %}
+  <script src="{% static 'js/search.js' %}"></script>
 {% endblock body %}

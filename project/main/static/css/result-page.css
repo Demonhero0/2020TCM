@@ -1,0 +1,56 @@
+/* root element */
+
+#root {
+  background-color: #bdd7ed;
+  align-items: center;
+}
+
+/* header */
+
+.header {
+  width: 100%;
+  border-bottom: 3px solid #4471c4;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.header .header__logo {
+  width: 100px;
+  align-self: start;
+}
+
+.header .header__content {
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.header .header__bottom {
+  margin-top: 20px;
+  flex-grow: 1;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header .header__search-count {
+  flex-shrink: 0;
+  border-left: 5px solid #3b3737;
+  padding: 8px 10px;
+}
+
+.header .header__claim {
+  font-size: 0.6em;
+  margin-top: 10px;
+  flex-shrink: 0;
+  align-self: flex-end;
+  padding-right: 10px;
+}
+@media screen and (min-width: 550px) {
+  .header .header__claim {
+    margin-left: auto;
+  }
+}

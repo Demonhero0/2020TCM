@@ -10,6 +10,16 @@
     }
   };
 
+  window.addEventListener("load", () => {
+    if (document.location.pathname === "/api/check") {
+      const urlParams = new URLSearchParams(window.location.search);
+      const searchString = urlParams.get("content");
+      if (searchString !== null) {
+        search_text_elem.value = searchString;
+      }
+    }
+  });
+
   search_text_elem.addEventListener("focus", () => {
     search_elem.classList.add(["search--focus"]);
   });
