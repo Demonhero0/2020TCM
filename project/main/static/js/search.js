@@ -6,7 +6,9 @@
   const do_search = () => {
     const search_string = search_text_elem.value;
     if (search_string != null && search_string !== "") {
-      document.location = `${document.location.origin}/api/check?content=${search_text_elem.value}`;
+      document.location = `${
+        document.location.origin
+      }/api/check?content=${encodeURIComponent(search_text_elem.value)}`;
     }
   };
 
