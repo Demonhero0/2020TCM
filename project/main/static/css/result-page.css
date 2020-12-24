@@ -1,0 +1,171 @@
+/* root element */
+
+#root {
+  background-color: #bdd7ed;
+  align-items: center;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* header */
+
+.header {
+  width: 100%;
+  border-bottom: 3px solid #4471c4;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.header .header__logo {
+  width: 100px;
+  align-self: start;
+}
+
+.header .header__content {
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.header .header__bottom {
+  margin-top: 20px;
+  flex-grow: 1;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header .header__search-count {
+  flex-shrink: 0;
+  border-left: 5px solid #3b3737;
+  padding: 8px 10px;
+}
+
+.header .header__claim {
+  font-size: 0.6em;
+  margin-top: 10px;
+  flex-shrink: 0;
+  align-self: flex-end;
+  padding-right: 10px;
+}
+@media screen and (min-width: 550px) {
+  .header .header__claim {
+    margin-left: auto;
+  }
+}
+
+/* result list */
+
+@media screen and (max-width: 500px) {
+  .result {
+    padding: 0 2em;
+  }
+}
+@media screen and (min-width: 500px) and (max-width: 1200px) {
+  .result {
+    padding: 0 5em;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .result {
+    padding: 0 calc(50% - 600px + 5em);
+  }
+}
+.result {
+  list-style: none;
+}
+
+.result .result__detail {
+  display: flex;
+  margin-bottom: 2.5em;
+  counter-increment: result-counter;
+}
+.result .result__detail::before {
+  flex-shrink: 0;
+  flex-grow: 0;
+  border-top: 5px solid white;
+
+  content: counter(result-counter);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  padding-top: 0.2em;
+  font-size: 2em;
+}
+@media screen and (max-width: 800px) {
+  .result .result__detail::before {
+    flex-basis: 30px;
+  }
+}
+@media screen and (min-width: 800px) {
+  .result .result__detail::before {
+    flex-basis: 50px;
+  }
+}
+
+.result .result__link {
+  text-decoration: none;
+  color: inherit;
+  flex-grow: 1;
+}
+
+.result .result__name {
+  border: 5px solid white;
+  border-top: none;
+  border-right: none;
+  padding: 10px;
+  padding-left: 20px;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.result .result__symptom {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
+  color: #548234;
+  font-size: 0.9em;
+  line-height: 2.5em;
+  text-shadow: 1px 1px 2px #808080c0;
+}
+@media screen and (max-width: 500px) {
+  .result .result__symptom {
+    width: 12em;
+  }
+}
+@media screen and (min-width: 500px) {
+  .result .result__symptom {
+    max-width: 16em;
+  }
+}
+
+.result .result__medicines {
+  display: flex;
+}
+.result .result__medicines-title {
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+.result .result__medicines__list {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 3em;
+}
+.result .result__medicine {
+  line-height: 1.5em;
+  flex-basis: 190px;
+  margin-right: 20px;
+}
+
+.no-result {
+  margin-top: 30px;
+}

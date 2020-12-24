@@ -109,3 +109,26 @@
 .search.search--large .search__button {
   height: calc(30px + (10px + 2px) * 2);
 }
+
+/* search component, medium modifier */
+.search.search--medium .search__input,
+.search.search--medium .search__button {
+  font-size: 1em;
+}
+.search.search--medium .search__input {
+  height: 10px;
+}
+@media screen and (max-width: 500px) {
+  .search.search--medium .search__input {
+    width: 70%;
+  }
+}
+@media screen and (min-width: 500px) {
+  .search.search--medium .search__input {
+    width: 300px;
+  }
+}
+.search.search--medium .search__button {
+  height: calc(10px + (10px + 2px) * 2);
+  width: 50px;
+}

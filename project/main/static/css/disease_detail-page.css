@@ -1,0 +1,96 @@
+/* root element */
+
+#root {
+  align-items: center;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.back-link {
+  margin-left: 60px;
+  text-decoration: none;
+  color: #548234;
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+
+/* header */
+
+.header {
+  width: 100%;
+  border-bottom: 3px solid #4471c4;
+  padding-top: 20px;
+  padding-bottom: 10px;
+
+  display: flex;
+  flex-direction: column;
+  background-color: #bdd7ed;
+}
+
+.header .header__top {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+}
+
+.header .header__disease-name {
+  font-size: 3em;
+  font-weight: bold;
+  margin-left: 60px;
+  margin-top: 20px;
+  flex-shrink: 0;
+  margin-right: auto;
+}
+
+.header .header__logo {
+  width: 80px;
+  align-self: start;
+}
+
+.header .header__disease-description {
+  width: 80%;
+  padding: 10px 30px 0;
+  font-size: 0.9em;
+  line-height: 1.8em;
+  min-height: 5.4em;
+}
+
+/* disease detail */
+
+.detail {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 500px) {
+  .detail {
+    padding: 0 2em;
+  }
+}
+@media screen and (min-width: 500px) and (max-width: 1200px) {
+  .detail {
+    padding: 0 5em;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .detail {
+    padding: 0 calc(50% - 600px + 5em);
+  }
+}
+
+.detail .detail__title {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  font-size: 1.7em;
+  font-weight: bold;
+  padding: 7px 0 7px 20px;
+  border-left: 5px solid #4471c4;
+}
+.detail .detail__title:after {
+  margin-left: 20px;
+  content: "";
+  height: 2px;
+  flex-grow: 1;
+  border-top: 2px solid #4471c4;
+}

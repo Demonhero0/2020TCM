@@ -26,5 +26,5 @@ urlpatterns = [
         template_name='swagger-ui.html',
         extra_context={'schema_url':'openapi-schema'}
     ), name='swagger-ui'),
-    path('check',CheckViewSet.as_view(),name='check')
+    path('check',CheckViewSet.as_view(),name='home-page')
 ]
