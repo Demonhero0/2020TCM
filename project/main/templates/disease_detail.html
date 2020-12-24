@@ -1,23 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>首页</title>
-</head>
-<body>
-    <h1>中医食疗推荐系统</h1>
-    <a href="javascript:history.back()">返回</a>
+{% extends 'components/base.html' %}
 
-    <div>
-        <h2>{{disease.name}}</h2>
-        <h3>简介<h3>
-        <p>{{disease.introduction}}</p>
-        <h3>相关中成药</h3>
-        {% for medicine in disease.medicines %}
-            <p>名称：{{medicine.name}}</p>
-            <p>成分：{{medicine.composition}}</p>
-            <p>功效：{{medicine.effect}}</p>
-        {% endfor %}
-    </div>
-</body>
-</html>
+{% block body %}
+  <h1>中医食疗推荐系统</h1>
+  <a class="back-link">返回</a>
+
+  <div>
+    <h2>{{disease.name}}</h2>
+    <h3>简介<h3>
+    <p>{{disease.introduction}}</p>
+    <h3>症状</h3>
+    <p>{{disease.symptom}}</p>
+    <h3>相关中成药</h3>
+    {% for medicine in disease.medicines %}
+      <p>名称：{{medicine.name}}</p>
+      <p>成分：{{medicine.composition}}</p>
+      <p>功效：{{medicine.effect}}</p>
+    {% endfor %}
+  </div>
+{% endblock body %}

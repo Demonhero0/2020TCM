@@ -1,0 +1,23 @@
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.responsive-img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+.responsive-img-container img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}

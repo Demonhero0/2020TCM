@@ -1,0 +1,111 @@
+.search {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  filter: drop-shadow(0 0 0 gray);
+}
+
+.search .search__row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.search .search__input {
+  padding: 10px 20px;
+  border-radius: 10px 0 0 10px;
+  border: 2px solid #767676;
+  border-right: 0;
+}
+.search .search__input:focus {
+  outline-width: 0;
+}
+
+.search .search__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 2px solid #767676;
+  border-radius: 0 10px 10px 0;
+  border-left: 0;
+  cursor: pointer;
+}
+.search .search__button:focus {
+  outline-width: 0;
+}
+.search .search__button img {
+  object-fit: scale-down;
+}
+
+.search .search__icon {
+  width: 70%;
+}
+.search .search__icon img {
+  filter: drop-shadow(0 0 0 #547dc4);
+  transition: filter 0.3s;
+}
+.search .search__icon img:hover {
+  filter: drop-shadow(0 0 3px #547dc4);
+}
+
+.search .search__note-wrapper {
+  display: none;
+  position: relative;
+  width: 184px;
+  height: 37px;
+
+  background-color: #767676;
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
+}
+.search .search__note {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+
+  break-after: always;
+  height: 35px;
+  width: 180px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: bold;
+  background-color: white;
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
+}
+
+/* search component, focus modifier */
+.search.search--focus {
+  filter: drop-shadow(0 0 3px gray);
+}
+
+/* search component, show-note modifier */
+.search.search--show-note .search__note-wrapper {
+  display: block;
+}
+.search.search--show-note .search__input {
+  border-top-left-radius: 0;
+}
+
+/* search component, large modifier */
+.search.search--large .search__input,
+.search.search--large .search__button {
+  font-size: 1.3em;
+}
+.search.search--large .search__input {
+  height: 30px;
+}
+@media screen and (max-width: 500px) {
+  .search.search--large .search__input {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 500px) {
+  .search.search--large .search__input {
+    width: 400px;
+  }
+}
+.search.search--large .search__button {
+  height: calc(30px + (10px + 2px) * 2);
+}

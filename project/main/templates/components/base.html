@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% block title %}
+    <title>中医食疗推荐系统</title>
+    {% endblock %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link type="text/css" rel="stylesheet" href="{% static 'css/normalize.css' %}" />
+    {% block head %}
+      {% comment %} extend head here {% endcomment %}
+    {% endblock %}
+  </head>
+  <body>
+    {% block body %}
+      {% comment %} extend body here {% endcomment %}
+    {% endblock %}
+    {% include './inject-back-link.html' %}
+  </body>
+</html>
