@@ -6,7 +6,10 @@
   background-position: center;
   background-size: cover;
   align-items: center;
+  height: 100vh;
+  overflow-y: auto;
 }
+
 @media screen and (max-width: 800px) {
   #root {
     padding: 0 2em;
@@ -72,11 +75,11 @@
 
 .hot-words .hot-words__word-card {
   display: flex;
-  margin-bottom: 1.5em;
+  margin-bottom: 2.5em;
 }
 .hot-words .hot-words__word-card::before {
   display: block;
-  flex-basis: 30px;
+  flex-basis: 40px;
   flex-shrink: 0;
   flex-grow: 0;
   content: "";
@@ -85,9 +88,9 @@
 
 .hot-words .hot-words__link {
   border: 3px solid white;
-  flex-grow: 1;
   border-top: none;
   border-right: none;
+  flex-grow: 1;
   text-decoration: none;
   color: inherit;
 }
@@ -99,7 +102,7 @@
 .hot-words .hot-words__word {
   display: inline-block;
   min-width: 100px;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
   padding-left: 30px;
 }
 .hot-words .hot-words__explain {

@@ -23,14 +23,34 @@
       </div>
     </div>
 
-    <div class="result">
+    {% if res %}
+      <ol class="result">
       {% for disease in res %}
-      <div>
-        <h3><a href="{% url 'disease-detail' disease.id %}" >{{disease.name}}</a></h3>
-        <h4>简介：{{disease.introduction}}</h4>
+        <li class="result__detail">
+          <a class="result__link" href="{% url 'disease-detail' disease.id %}" >
+            <div class="result__name">{{disease.name}}</div>
+            <div class="result__symptom">症状表现：{{ disease.symptom }}</div>
+            <div class="result__medicines">
+              <div class="result__medicines-title">
+                治疗方案：
+              </div>
+              <ol class="result__medicines__list">
+                {% for medicine in disease.medicines %}
+                  <li class="result__medicine">
+                    {{ medicine.name }}
+                  </li>
+                {% endfor %}
+              </ol>
+            </div>
+          </a>
+        </li>
+        {% endfor %}
+      </ol>
+    {% else %}
+      <div class="no-result">
+        没有找到相关结果
       </div>
-      {% endfor %}
-    </div>
+    {% endif %}
   </div>
   <script src="{% static 'js/search.js' %}"></script>
 {% endblock body %}
