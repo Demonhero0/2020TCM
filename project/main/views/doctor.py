@@ -28,12 +28,14 @@ class CheckViewSet(APIView):
         if content:
             disease_query = Disease.objects.none()
             disease_query = disease_query.union(Disease.objects.filter(name__contains=content))
+            disease_query = disease_query.union(Disease.objects.filter(introduction__contains=content))
             disease_query = disease_query.union(Disease.objects.filter(symptom__contains=content))
             # print(disease_query)
             tags = jieba.analyse.extract_tags(content, topK=20, withWeight=True, allowPOS=('ns','n','v'))
             print('tags: ',tags)
             for tag in tags:
                 disease_query = disease_query.union(Disease.objects.filter(symptom__contains=tag[0]))
+                disease_query = disease_query.union(Disease.objects.filter(introduction__contains=tag[0]))
                 disease_query = disease_query.union(Disease.objects.filter(name=tag[0]))
             # print(disease_query)
             res = DiseaseSerializer(disease_query,context={"request":request}, many=True)
